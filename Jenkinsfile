@@ -58,6 +58,11 @@ parallel 'Maven-3.5-jdk-8':{
   }
 }
 
+stage 'Publish'
+node('slave-1'){
+  sh "Published..."
+}
+
 stage 'Deploy'
 node {
   sh "sleep 9; echo 'Artifact Deployed!'"
