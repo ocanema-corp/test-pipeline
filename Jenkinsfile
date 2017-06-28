@@ -61,6 +61,9 @@ parallel 'Maven-3.5-jdk-8':{
 stage 'Test docker API'
 node{
   sh "curl http://localhost:4243/version/"
+stage 'Publish'
+node('slave-1'){
+  sh "echo 'Published...'"
 }
 
 stage 'Deploy'
