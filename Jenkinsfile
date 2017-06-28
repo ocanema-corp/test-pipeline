@@ -29,7 +29,7 @@ parallel 'Windows': {
     sh "sleep 10; echo 'Linux OK'"
   }
 }, 'Mac': {
-  node{
+  node('slave-1'){
     sh "sleep 8; echo 'Mac OK'"
   }
 }, 'Solaris': {
