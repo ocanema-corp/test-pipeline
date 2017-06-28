@@ -59,6 +59,12 @@ parallel 'Maven-3.5-jdk-8':{
 }
 
 stage 'Deploy'
-node {
-  sh "sleep 9; echo 'Artifact Deployed!'"
+parallel "Linux":{
+  node('slave-1') {
+    sh "sleep 9; echo 'Artifact Deployed!'"
+  }
+}, "Windows":{
+  node('slave-1'){
+    sh "sleep 9; echo 'Artifact Deployed!'"
+  }
 }
