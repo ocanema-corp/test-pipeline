@@ -68,3 +68,8 @@ parallel "Linux":{
     sh "sleep 9; echo 'Artifact Deployed!'"
   }
 }
+
+stage 'Finish Tasks'
+node('slave-1'){
+  sh "echo 'Finish!!''"
+}
