@@ -60,7 +60,7 @@ parallel 'Maven-3.5-jdk-8':{
 
 stage 'Publish'
 node('slave-1'){
-  sh "Published..."
+  sh "echo 'Published...'"
 }
 
 stage 'Deploy'
