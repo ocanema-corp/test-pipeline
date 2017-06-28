@@ -57,3 +57,24 @@ parallel 'Maven-3.5-jdk-8':{
     sh 'echo "Maven 3.5 - JDK 9"'
   }
 }
+
+stage 'Test docker API'
+node{
+  sh "curl http://localhost:4243/version/"
+}
+
+stage 'Publish'
+node('slave-1'){
+  sh "echo 'Published...'"
+}
+
+stage 'Deploy'
+parallel "Linux":{
+  node('slave-1') {
+    sh "sleep 9; echo 'Artifact Deployed!'"
+  }
+}, "Windows":{
+  node('slave-1'){
+    sh "sleep 9; echo 'Artifact Deployed!'"
+  }
+}
