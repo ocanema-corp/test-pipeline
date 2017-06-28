@@ -71,5 +71,5 @@ parallel "Linux":{
 
 stage 'Finish Tasks'
 node('slave-1'){
-  sh "echo 'Finish!!''"
+  sh "echo 'Finish!!'"
 }
