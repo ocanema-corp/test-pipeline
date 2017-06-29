@@ -13,9 +13,18 @@
   <dependencies>
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
     <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <version>5.2.10.Final</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.2.10.Final</version>
     </dependency>
   </dependencies>
+  <settings>
+    <servers>
+      <server>
+        <id>http://localhost:8081</id>
+        <username>admin</username>
+        <password>Ci8yanyf</password>
+      </server>
+    </servers>
+  </settings>
 </project>
