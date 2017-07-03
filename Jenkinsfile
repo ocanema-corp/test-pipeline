@@ -47,14 +47,12 @@ stage 'Test Maven Docker'
 parallel 'Maven-3.5-jdk-8':{
   docker.image('maven:3.5-jdk-8').inside('-v $HOME/.m2/repo:/m2repo') {
     git "https://github.com/ocanema/test-pipeline.git"
-    sh 'echo $JAVA_HOME'
     sh 'mvn -Dmaven.repo.local=/m2repo validate' 
     sh 'echo "Maven 3.5 - JDK 8"'
   }
 }, 'Maven-3.5-jdk-9':{
   docker.image('maven:3.5-jdk-9').inside('-v $HOME/.m2/repo:/m2repo') {
     git "https://github.com/ocanema/test-pipeline.git"
-    sh 'echo $JAVA_HOME'
     sh 'mvn -Dmaven.repo.local=/m2repo validate' 
     sh 'echo "Maven 3.5 - JDK 9"'
   }
@@ -62,7 +60,7 @@ parallel 'Maven-3.5-jdk-8':{
 
 stage 'Test docker API'
 node{
-  sh "curl http://localhost:4243/version/"
+  sh "curl http://localhost:2375/version/"
 }
 
 stage 'Publish'
