@@ -45,7 +45,7 @@ node('slave-1') {
 
 stage 'Test Maven Docker'
 parallel 'Maven-3.5-jdk-8':{
-  docker.withServer('http://localhost:2357',''){
+  docker.withServer('tcp://localhost:2357',''){
     docker.image('maven:3.5-jdk-8-alpine').inside('-v $HOME/.m2/repo:/m2repo') {
       git "https://github.com/ocanema/test-pipeline.git"
       sh 'mvn -Dmaven.repo.local=/m2repo validate' 
